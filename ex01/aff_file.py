@@ -18,7 +18,7 @@ def main():
         # Sets the country column as the index of malaysia_data
         malaysia_data.set_index('country', inplace=True)
 
-        # retuan the column names of malaysia_data as panda index
+        # return the column names of malaysia_data as panda index
         years = malaysia_data.columns.astype(int).to_numpy()
 
         # Select the row corresponding Malaysia
@@ -30,7 +30,7 @@ def main():
         # Supertitle
         fig.suptitle("Malaysia Life Expectancy Projections")
 
-        # Plit Years as x-axis and Life as y-axis
+        # Plot Years as x-axis and Life as y-axis
         axs.plot(years, life)
         axs.set_xlabel("Years")
         axs.set_ylabel("Life Expectancy")
