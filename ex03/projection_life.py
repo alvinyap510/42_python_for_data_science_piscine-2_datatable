@@ -1,7 +1,7 @@
 import numpy as np
-import pandas as pd
 import matplotlib.pyplot as plt
 from load_csv import load
+
 
 def convert_str_numbers(arr):
     '''
@@ -25,10 +25,11 @@ def main():
     '''
     try:
         # Load DataSets
-        income_dataset = load("income_per_person_gdppercapita_ppp_inflation_adjusted.csv")
+        income_dataset = load(
+            "income_per_person_gdppercapita_ppp_inflation_adjusted.csv")
         life_dataset = load("life_expectancy_years.csv")
 
-        # Extract Data of 1900 
+        # Extract Data of 1900
         income_1900 = income_dataset['1900'].to_numpy()
         life_1900 = life_dataset['1900'].to_numpy()
 
@@ -47,34 +48,8 @@ def main():
         axs.set_xticks([300, 1_000, 10_000])
         axs.set_xticklabels(['300', '1k', '10k'])
 
-
-        # axs.legend("lower right")
         plt.show()
 
-        # # Calculate correlation matrix
-        # correlation_matrix = np.corrcoef(income_1900, life_1900)
-        # correlation_xy = correlation_matrix[0, 1]
-        # r_squared = correlation_xy**2
-        # print(r_squared)
-
-        # plt.scatter(income_1900, life_1900, label=f'R-squared: {r_squared:.2f}')
-
-        # m, b = np.polyfit(income_1900, life_1900, 1)
-        # plt.plot(income_1900, m*life_1900 + b, color='red')
-
-        # # Step 5: Add labels, title, and legend
-        # plt.xlabel('X Data')
-        # plt.ylabel('Y Data')
-        # plt.title('Correlation and Line of Best Fit')
-        # plt.legend()
-
-        # # Step 6: Show the plot
-        # plt.show()
-
-        # # print(income_dataset)
-        # # print(life_dataset)
-
-        
     except Exception as e:
         print(f"Error: {e}")
     except KeyboardInterrupt:
