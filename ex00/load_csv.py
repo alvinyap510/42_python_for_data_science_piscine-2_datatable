@@ -1,6 +1,7 @@
 import pandas as pd
 
-def load(path: str) -> pd.DataFrame | None: 
+
+def load(path: str) -> pd.DataFrame | None:
     '''
     Load CSV from a path and return the dataset.
 
