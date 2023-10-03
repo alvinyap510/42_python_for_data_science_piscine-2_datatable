@@ -13,10 +13,13 @@ def main():
         dataset = load("life_expectancy_years.csv")
 
         # Extract the rows where the 'country' column is equal to 'Malaysia'
-        malaysia_data = dataset[dataset['country'] == 'Malaysia']
+        filter_mask = dataset['country'] == 'Malaysia'
+        malaysia_data = dataset[filter_mask]
 
         # Sets the country column as the index of malaysia_data
         malaysia_data.set_index('country', inplace=True)
+
+        # print(malaysia_data)
 
         start_index = 0  # Index corresponding to the year 1800
         end_index = 251  # Index corresponding to the year 2050
@@ -29,7 +32,6 @@ def main():
         life = malaysia_data.loc['Malaysia'].to_numpy()
         life = life[start_index:end_index]
 
-
         # Initialize a plot
         fig, axs = plt.subplots()
 
@@ -40,12 +42,13 @@ def main():
         axs.plot(years, life)
         axs.set_xlabel("Years")
         axs.set_xticks([1800, 1840, 1880, 1920, 1960, 2000, 2040])
-        axs.set_xticklabels(['1800', '1840', '1880', '1920', '1960', '2000', '2040'])
+        axs.set_xticklabels(
+            ['1800', '1840', '1880', '1920', '1960', '2000', '2040'])
         axs.set_ylabel("Life Expectancy")
 
-        plt.show()
+        # plt.show()
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"{type(e).__name__}: {e}")
     except KeyboardInterrupt:
         print("Keyboard interuption, bye~")
 

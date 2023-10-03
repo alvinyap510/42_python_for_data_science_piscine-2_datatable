@@ -16,6 +16,6 @@ def load(path: str) -> pd.DataFrame | None:
         print(f"Loading dataset of dimensions {data.shape}")
         return data
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"{type(e).__name__}: {e}")
     except KeyboardInterrupt:
         print("Keyboard interuption, bye~")

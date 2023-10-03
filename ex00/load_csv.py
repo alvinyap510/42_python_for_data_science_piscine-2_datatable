@@ -12,10 +12,10 @@ def load(path: str) -> pd.DataFrame | None:
     pd.DataFrame: DataSet that has been read
     '''
     try:
-        data = pd.read_csv(path)
+        data = pd.read_csv(path, index_col=0)  # index_col = 0
         print(f"Loading dataset of dimensions {data.shape}")
         return data
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"{type(e).__name__}: {e}")
     except KeyboardInterrupt:
         print("Keyboard interuption, bye~")
