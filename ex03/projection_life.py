@@ -38,7 +38,7 @@ def main():
 
         # Set Title
         # fig.suptitle("1900")
-        axs.set_title("1990")
+        axs.set_title("1900")
 
         # Plot / Scatter
         axs.scatter(income_1900, life_1900, marker="o")
